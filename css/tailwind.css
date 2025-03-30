@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 59, 89, 152; /* #3B5998 */
+    --color-accent: 16, 185, 129; /* #10B981 */
+    --color-background: 255, 255, 255;
+    --color-foreground: 31, 41, 55;
+  }
+
+  .dark {
+    --color-background: 17, 24, 39;
+    --color-foreground: 243, 244, 246;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-300 py-2;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .mobile-nav-link {
+    @apply block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white dark:bg-gray-800 text-primary border border-primary rounded-full font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white;
+  }
+
+  .section-divider {
+    @apply w-24 h-1 bg-primary mx-auto mb-6;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+  }
+
+  .social-icon {
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-primary hover:bg-primary hover:text-white transition-colors duration-300;
+  }
+
+  .social-icon-footer {
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 hover:bg-primary hover:text-white transition-colors duration-300;
+  }
+
+  .tech-tag {
+    @apply px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-sm;
+  }
+
+  .timeline-dot {
+    @apply w-6 h-6 rounded-full bg-primary relative z-10;
+  }
+
+  .timeline-dot::before {
+    @apply content-[''] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary bg-opacity-20;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+
+  .filter-btn {
+    @apply px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white hover:border-primary transition-colors;
+  }
+
+  .filter-btn.active {
+    @apply bg-primary text-white border-primary;
+  }
+}
